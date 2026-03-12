@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand GSG Restaurant Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <i class="fa-solid fa-utensils"></i> Grand GSG
+            </div>
+            <div class="nav-links">
+                <button id="view-customer-btn" class="nav-btn active">Customer View</button>
+                <button id="view-admin-btn" class="nav-btn">Admin View</button>
+                <div class="cart-icon-container">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="app-container">
+        <!-- Customer View -->
+        <section id="customer-view" class="view-section active">
+            <header class="hero">
+                <div class="hero-content">
+                    <h1>Experience Culinary Excellence</h1>
+                    <p>Order from our premium selection of dishes, crafted with passion.</p>
+                </div>
+            </header>
+            
+            <div class="menu-container">
+                <div class="table-selector">
+                    <label for="table-input">Table Number:</label>
+                    <input type="number" id="table-input" min="1" max="50" value="1">
+                </div>
+                
+                <div class="category-filters" id="category-filters">
+                    <!-- Filters injected by JS -->
+                </div>
+
+                <div class="menu-grid" id="menu-grid">
+                    <!-- Menu items injected by JS -->
+                </div>
+            </div>
+            
+            <!-- Shopping Cart Sidebar -->
+            <div id="cart-sidebar" class="sidebar">
+                <div class="sidebar-header">
+                    <h2>Your Order</h2>
+                    <button id="close-cart-btn" class="icon-btn"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="cart-items" id="cart-items">
+                    <!-- Cart items injected by JS -->
+                </div>
+                <div class="cart-footer">
+                    <div class="cart-total">
+                        <span>Total:</span>
+                        <span id="cart-total-amount">$0.00</span>
+                    </div>
+                    <button id="checkout-btn" class="primary-btn checkout-btn">Place Order</button>
+                </div>
+            </div>
+            <div id="cart-overlay" class="overlay"></div>
+        </section>
+
+        <!-- Admin View -->
+        <section id="admin-view" class="view-section">
+            <header class="admin-header">
+                <h2>Kitchen Dashboard</h2>
+                <div class="admin-stats">
+                    <div class="stat-card">
+                        <span class="stat-value" id="stat-pending">0</span>
+                        <span class="stat-label">Pending</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="stat-completed">0</span>
+                        <span class="stat-label">Completed</span>
+                    </div>
+                </div>
+                <button id="refresh-orders-btn" class="icon-btn refresh-btn" title="Refresh Orders"><i class="fa-solid fa-rotate-right"></i></button>
+            </header>
+            
+            <div class="orders-board">
+                <div class="orders-column">
+                    <h3>Pending Orders</h3>
+                    <div class="orders-list" id="pending-orders-list">
+                        <!-- Pending orders injected by JS -->
+                    </div>
+                </div>
+                <div class="orders-column">
+                    <h3>Completed Or Cancelled</h3>
+                    <div class="orders-list" id="completed-orders-list">
+                        <!-- Completed orders injected by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Notification Toast -->
+    <div id="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
